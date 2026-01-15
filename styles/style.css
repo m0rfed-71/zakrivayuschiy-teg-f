@@ -91,6 +91,31 @@ main {
 .card__image-container {
   width: 100%;
   overflow: hidden;
+  position: relative;
+}
+
+.card__label {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  color: #000;
+  font-family: var(--reserve-font), sans-serif;
+  font-size: 14px;
+  line-height: 14px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  mix-blend-mode: hard-light;
+  opacity: 0.6;
+  -webkit-text-stroke: 1px var(--outline-label);
+}
+
+@supports not (-webkit-text-stroke: 1px) {
+  .card__label {
+    text-shadow: -1px -1px 0 var(--outline-label), 1px -1px 0 var(--outline-label), -1px 1px 0 var(--outline-label), 1px 1px 0 var(--outline-label);
+  }
 }
 
 .card__image {
@@ -131,7 +156,6 @@ main {
 .card__like-container {
   display: flex;
   align-items: center;
-  gap: 12px;
   align-self: flex-end;
   padding-block: 25px;
   padding-inline-end: 25px;
