@@ -148,6 +148,7 @@ main {
   width: 100%;
   height: auto;
   object-fit: cover;
+  filter: ;
 }
 
 .card__memory-text {
