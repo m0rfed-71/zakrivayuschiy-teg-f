@@ -19,7 +19,7 @@
 
 .like-icon .core {
   fill: transparent;
-  transition: fill 0.3s linear, opacity 0.3s linear;
+  transition: fill 0.3s linear 0.03s;
 }
 
 .like-icon .main-body {
@@ -28,7 +28,7 @@
 }
 
 .like-icon .contour {
-  fill: #000;
+  fill: var(--color-countour);
   transition: fill 0.1s linear;
 }
 
@@ -42,37 +42,37 @@
 }
 
 .like-icon:hover .core {
-  fill: #000;
+  fill: var(--color-countour);
   transition: fill 0.3s linear;
 }
 
 .like-icon:hover .main-body {
-  fill: #000;
+  fill: var(--color-countour);
   transition: fill 0.3s 0.05s linear;
 }
 
 .like-icon:active .core {
-  fill: #ff0000;
+  fill: var(--animation-fill-color);
   transition: fill 0.3s linear;
 }
 
 .like-icon:active .main-body {
-  fill: #ff0000;
-  transition: fill 0.3s 0.05s linear;
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s 0.03s linear;
 }
 
 .like-icon.is-liked .core {
-  fill: #ff0000;
+  fill: var(--animation-fill-color);
   transition: fill 0.3s linear;
 }
 
 .like-icon.is-liked .main-body {
-  fill: #ff0000;
+  fill: var(--animation-fill-color);
   transition: fill 0.3s 0.05s linear;
 }
 
 .like-icon.is-liked .contour {
-  fill: #ff0000;
+  fill: var(--animation-fill-color);
   transition: fill 0.3s 0.06s linear;
 }
 
@@ -93,11 +93,8 @@
   from {
     transform: scale(1);
   }
-  50% {
-    transform: scale(1.5);
-  }
   to {
-    transform: scale(1);
+    transform: scale(1.25);
   }
 }
 

@@ -21,7 +21,7 @@
   display: flex;
   align-content: center;
   justify-content: center;
-  font-family: var(--reserve-font),sans-serif;
+  font-family: var(--reserve-font), sans-serif;
   font-style: Regular;
   font-size: 1.5rem;
   font-weight: 400;
@@ -30,19 +30,22 @@
   text-transform: uppercase;
   background-image: var(--Themes-background);
   background-size: cover;
-  width: clamp(375px, 1440px, 100%);
+  width: clamp(375px, 100%);
 }
 
 .decorated-header {
-  background-color: rgb(255, 255,255, 1);
+  background-color: rgb(255, 255, 255, 1);
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  margin-block-start: 100px; 
+  max-width: 696px;
+  margin-block-start: 100px;
   margin-block-end: 80px;
-  border: 2px solid rgb(0, 0, 0) ;
+  border: 2px solid rgb(0, 0, 0);
 }
 
 .header-title {
-  margin-block-start: 122px; 
+  margin-block-start: 122px;
 }
 
 .header-subscribe {
@@ -52,13 +55,13 @@
 }
 
 .title_section {
-color: rgba(0, 0, 0, 1);
-font-family: var(--main-font),sans-serif;
-font-size: 18px;
-font-variation-settings: 'wght' var(--weight-main-font-title);
-line-height: 22px;
-text-align: left;
-padding: 4px 10px;
+  color: rgba(0, 0, 0, 1);
+  font-family: var(--main-font), sans-serif;
+  font-size: 18px;
+  font-variation-settings: 'wght' var(--weight-main-font-title);
+  line-height: 22px;
+  text-align: left;
+  padding: 4px 10px;
 }
 
 main {
@@ -174,7 +177,7 @@ main {
 }
 
 .image_for_thr_sprint_end {
- filter: brightness(0.7) saturate(1.8); 
+  filter: brightness(0.7) saturate(1.8);
 }
 
 .image_for_end {
@@ -196,32 +199,41 @@ main {
   align-self: flex-end;
   padding-block: 25px;
   padding-inline-end: 25px;
+  gap: 12px;
 }
 
 .card__icon-button {
   background: transparent;
-  border: 2px solid transparent;
+  border: none;
   padding: 0;
   cursor: pointer;
   color: #000;
-  transition: border-color 0.3s ease;
+  transition: outline 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 39px;
-  height: 36px;
+  width: 27px;
+  height: 24px;
+  outline-offset: -2px;
 }
 
-.card__icon-button:focus {
+.decorated_button:focus {
   outline: none;
-  border-color: #000;
+  box-shadow: 2px 2px 0 0 #000;
+  transition: box-shadow 0.3s ease;
 }
 
 .card__icon-button:hover {
-  border-color: #000;
+  outline-color: #000;
+}
+
+.like-icon {
+  width: 100%;
+  height: 100%;
 }
 
 .card__like-button {
+  position: relative;
   background: transparent;
   border: 2px solid #000;
   padding: 10px 20px;
@@ -230,16 +242,35 @@ main {
   font-family: var(--reserve-font), sans-serif;
   font-size: 14px;
   line-height: 14px;
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease, color 0.5s ease-in-out;
   min-width: 130px;
+  overflow: hidden;
 }
 
-.card__like-button:focus {
-  outline: none;
+.card__like-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: #fff;
+  color: var(--text-color);
+  transition: width 0.5s ease-in-out;
+  z-index: 0;
+  pointer-events: cursor;
+  mix-blend-mode: difference;
 }
 
-.card__like-button:hover {
-  box-shadow: 2px 2px 0 0 #000;
+.card__like-button:hover::after {
+  width: 100%;
+}
+
+.button__text {
+  position: relative;
+  z-index: 1;
+  color: var(--text-color);
+  mix-blend-mode: difference;
 }
 
 .card__like-button:active {
@@ -253,6 +284,7 @@ main {
 }
 
 .footer__button {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -266,15 +298,34 @@ main {
   font-size: 14px;
   line-height: 14px;
   text-transform: uppercase;
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease, color 0.5s ease-in-out;
+  overflow: hidden;
 }
 
 .footer__button:focus {
   outline: none;
 }
 
+.footer__button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: #000;
+  transition: width 0.5s ease-in-out;
+  z-index: 0;
+  pointer-events: cursor;
+  mix-blend-mode: difference;
+}
+
 .footer__button:hover {
-  box-shadow: 2px 2px 0 0 #000;
+  color: #fff;
+}
+
+.footer__button:hover::after {
+  width: 100%;
 }
 
 .footer__button:active {
@@ -284,12 +335,118 @@ main {
 .footer__icon {
   width: 28px;
   height: 28px;
-  color: currentColor;
   flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  color: currentColor;
+  transition: filter 0.3s ease;
+}
+
+.footer__button:hover .footer__icon {
+  filter: invert(1);
 }
 
 .footer__button-text {
   font-family: var(--reserve-font), sans-serif;
   font-size: 14px;
   line-height: 14px;
+  position: relative;
+  z-index: 1;
+  mix-blend-mode: difference;
+}
+
+.dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 30px 40px;
+  border: 2px solid #000;
+  background-color: #fff;
+  min-width: 341px;
+  max-width: 353px;
+  font-family: var(--reserve-font), sans-serif;
+  font-size: 14px;
+  line-height: 21px;
+  text-transform: uppercase;
+}
+
+.dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.dialog__content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 30px;
+}
+
+.dialog__icon {
+  width: 39px;
+  height: 36px;
+  flex-shrink: 0;
+  color: #000;
+}
+
+.dialog__text {
+  margin: 0;
+  color: #000;
+  font-size: 14px;
+  line-height: 21px;
+  text-transform: uppercase;
+}
+
+.dialog__button {
+  position: relative;
+  width: 100%;
+  padding: 10px;
+  margin: 0;
+  border: 2px solid #000;
+  background: transparent;
+  color: #000;
+  font-family: var(--reserve-font), sans-serif;
+  font-size: 14px;
+  line-height: 14px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease, color 0.5s ease-in-out;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.dialog__button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: #000;
+  transition: width 0.5s ease-in-out;
+  z-index: 0;
+}
+
+.dialog__button:hover {
+  color: #fff;
+}
+
+.dialog__button:hover::after {
+  width: 100%;
+}
+
+.dialog__button:active {
+  box-shadow: none;
+}
+
+.dialog__button-text {
+  position: relative;
+  z-index: 1;
+}
+
+@media (width >= 375px) {
+  .footer__button {
+    flex-direction: row;
+  }
 }
