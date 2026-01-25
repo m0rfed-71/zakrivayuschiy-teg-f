@@ -1,1 +1,1 @@
-https://m0rfed-71.github.io/zakrivayuschiy-teg-f/
+https://github.com/m0rfed-71/zakrivayuschiy-teg-f
