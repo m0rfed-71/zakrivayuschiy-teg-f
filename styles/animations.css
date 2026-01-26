@@ -14,7 +14,6 @@
   width: 39px;
   height: 36px;
   color: #000;
-  transition: color 0.3s ease;
 }
 
 .like-icon .core {
@@ -34,10 +33,6 @@
 
 .like-icon .sparks {
   opacity: 0;
-  fill: #ff0000;
-}
-
-.like-icon .sparks circle {
   fill: #ff0000;
 }
 

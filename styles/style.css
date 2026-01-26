@@ -15,6 +15,9 @@
   min-block-size: 100dvb;
   font-family: var(--main-font), sans-serif;
   font-variation-settings: "wght" var(--weight-main-font-title);
+  background-image: var(--Themes-background);
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 .header {
@@ -22,15 +25,12 @@
   align-content: center;
   justify-content: center;
   font-family: var(--reserve-font), sans-serif;
-  font-style: Regular;
   font-size: 1.5rem;
   font-weight: 400;
   line-height: 49px;
   text-align: center;
   text-transform: uppercase;
-  background-image: var(--Themes-background);
-  background-size: cover;
-  width: clamp(375px, 100%);
+  width: clamp(375px, 100%, 100%);
 }
 
 .decorated-header {
@@ -52,16 +52,6 @@
   font-size: 14px;
   padding-block-end: 122px;
   text-transform: uppercase;
-}
-
-.title_section {
-  color: rgba(0, 0, 0, 1);
-  font-family: var(--main-font), sans-serif;
-  font-size: 18px;
-  font-variation-settings: 'wght' var(--weight-main-font-title);
-  line-height: 22px;
-  text-align: left;
-  padding: 4px 10px;
 }
 
 main {
@@ -111,7 +101,7 @@ main {
   justify-content: center;
   background-color: transparent;
   mix-blend-mode: hard-light;
-  opacity: 0.6;
+  opacity: 0.5;
   -webkit-text-stroke: 1px var(--outline-label);
 }
 
@@ -126,10 +116,40 @@ main {
   height: auto;
   display: block;
   object-fit: cover;
+  border-bottom: 2px solid var(--color-countour);
+  border-top: 2px solid var(--color-countour);
 }
 
-.card__image_blur {
-  filter: blur(1.5px);
+.saturate {
+  filter: saturate(200%);
+}
+
+.brightness {
+  filter: brightness(0.7);
+}
+
+.nebula {
+  filter: opacity(0.5) contrast(1.5);
+}
+
+.sharpen {
+  filter: brightness(1.1) saturate(1.5);
+}
+
+.blur {
+  filter: blur(0.1rem);
+}
+
+.hue-rotate {
+  filter: hue-rotate(30deg);
+}
+
+.sunrise {
+  filter: brightness(0.7) saturate(1.8);
+}
+
+.intensity {
+  filter: opacity(0.8) contrast(1.3);
 }
 
 .card__text {
@@ -143,54 +163,9 @@ main {
   padding-inline: 25px;
 }
 
-.card__memory {
-  padding-inline: 25px;
-}
-
-.card__memory__image {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
-.image_for_zero_sprint {
-  filter: saturate(200%);
-}
-
-.image_for_first_sprint_start {
-  filter: brightness(696px);
-}
-
-.image_for_first_sprint_end {
-  filter: opacity(0.5) contrast(1.5);
-}
-
-.image_for_sec_sprint_start {
-  filter: brightness(1.1) saturate(1.5);
-}
-.image_for_sec_sprint_end {
-  filter: blur(0.1rem);
-}
-
-.image_for_thr_sprint_start {
-  filter: hue-rotate(30deg);
-}
-
-.image_for_thr_sprint_end {
-  filter: brightness(0.7) saturate(1.8);
-}
-
-.image_for_end {
-  filter: opacity(0.8) contrast(1.3);
-}
-
-.card__memory-text {
-  color: #000;
-  font-family: var(--main-font), sans-serif;
-  font-size: 18px;
-  font-variation-settings: "wght" var(--weight-main-font-text);
-  line-height: 21px;
-  text-align: left;
+.my__experience {
+  padding-block-start: 0px;
+  padding-block-end: 0px;
 }
 
 .card__like-container {
@@ -219,12 +194,20 @@ main {
 
 .decorated_button:focus {
   outline: none;
+}
+
+.decorated_button:focus-visible {
+  outline: none;
   box-shadow: 2px 2px 0 0 #000;
   transition: box-shadow 0.3s ease;
 }
 
-.card__icon-button:hover {
-  outline-color: #000;
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  border:2px solid #000;
 }
 
 .like-icon {
@@ -258,7 +241,6 @@ main {
   color: var(--text-color);
   transition: width 0.5s ease-in-out;
   z-index: 0;
-  pointer-events: cursor;
   mix-blend-mode: difference;
 }
 
@@ -281,6 +263,8 @@ main {
   display: flex;
   justify-content: center;
   padding: 50px 0;
+  background-color: #fff;
+  isolation: isolate;
 }
 
 .footer__button {
@@ -300,6 +284,7 @@ main {
   text-transform: uppercase;
   transition: box-shadow 0.3s ease, color 0.5s ease-in-out;
   overflow: hidden;
+  isolation: isolate;
 }
 
 .footer__button:focus {
@@ -316,12 +301,7 @@ main {
   background-color: #000;
   transition: width 0.5s ease-in-out;
   z-index: 0;
-  pointer-events: cursor;
   mix-blend-mode: difference;
-}
-
-.footer__button:hover {
-  color: #fff;
 }
 
 .footer__button:hover::after {
@@ -354,6 +334,11 @@ main {
   z-index: 1;
   mix-blend-mode: difference;
 }
+
+.footer__button:hover .footer__button-text {
+  color: #fff;
+}
+
 
 .dialog {
   position: fixed;
