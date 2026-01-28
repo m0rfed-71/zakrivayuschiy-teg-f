@@ -340,4 +340,9 @@ main {
     width: 21px;
     height: 21px;
   }
+
+  .dialog .footer__icon {
+    width: 39px;
+    height: 39px;
+  }
 }
