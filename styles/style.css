@@ -326,7 +326,7 @@ main {
   margin: 0;
 }
 
-.dialog__button .footer__icon {
+.dialog .footer__icon {
   width: 39px;
   height: 39px;
 }
