@@ -5,8 +5,8 @@
   --weight-main-font-title: 700;
   --weight-main-font-text: 400;
   --Themes-background: repeating-linear-gradient(to right, #d3d3d3 0, #d3d3d3 2px, transparent 2px, transparent 4px),
-    repeating-linear-gradient(to bottom, #d3d3d3 0, #d3d3d3 2px, transparent 2px, transparent 4px),
-    linear-gradient(to bottom, #e7e7e7, #1a1a1a);
+    repeating-linear-gradient(to bottom, #d3d3d3 0, #d3d3d3 2px , transparent 2px, transparent 4px),
+    linear-gradient(to bottom, #e7e7e7 , #1a1a1a);
   --outline-label: whitesmoke;
   --text-color: #fff;
   --color-countour: #000;
